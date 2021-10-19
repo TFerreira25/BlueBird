@@ -1,0 +1,364 @@
+
+body{
+  font-size:100%;
+}
+
+/*------------------------------------------------------ body of the bird
+*/
+
+.pajaro{
+  background:blue;
+  /*border-radius: 50% 50% 20% 20%;*/
+  color:white;
+  line-height:20px;
+  letter-spacing: 2px;
+  font-size:0.8em;
+  text-align:center;
+  position:absolute;
+  top:8%; left:50%;
+  margin-top:-20px; margin-left:-10px;
+  width:15px; height:15px;
+  animation:planeo 0.8s linear infinite;
+  z-index:999;
+}
+
+.pajaro:after,
+.pajaro:before{
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+}
+
+/*------------------------------------------------------ bird wings
+*/
+
+.pajaro:after{
+  border-radius: 100% 100% 0 0;
+  box-shadow: inset 0px 5px 0 blue;
+  width:100px; height:100px;
+  margin-top:-7px; margin-left:-50px;
+  transform-origin: 100% 0%;
+  animation:alas 3s linear infinite;
+}
+
+/*------------------------------------------------------ bird beak
+*/
+
+.pajaro:before{
+  background:#FFC37F;
+  border-radius: 100% 0% 20% 0%;
+  margin-top:3px; margin-left:-4px;
+  width:6px; height:6px;
+  transform:rotateZ(45deg);
+}
+
+/*------------------------------------------------------ wings animation
+*/
+
+@keyframes alas {
+  50%{
+    transform:rotateX(-1440deg);
+  }
+}
+
+/*------------------------------------------------------ bird animation
+*/
+
+@keyframes planeo {
+  40%{
+    transform:rotateZ(2deg) translateX(2px) translateY(10px) translateZ(0);
+    line-height:16px;
+    font-size:0.6em;
+  }
+  80%{
+    transform:rotateZ(-2deg) translateX(5px) translateY(8px) translateZ(0);
+  }
+}
+
+
+.users .search{
+  margin: 20px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+.users .search .text{
+  font-size: 18px;
+}
+.users .search input{
+  position: absolute;
+  height: 42px;
+  width: calc(100% - 50px);
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.users .search input.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.users .search button{
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 42px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+  color: #2196f3;
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease;
+}
+.users .search button.active{
+  background: #2196f3;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  color: #fff;
+}
+.search button.active i::before{
+  content: '\f00d';
+}
+.users-list{
+  max-height: 350px;
+  overflow-y: auto;
+}
+:is(.users-list, .chat-box)::-webkit-scrollbar{
+  width: 0px;
+}
+.users-list a{
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  padding-right: 15px;
+  border-bottom-color: #f1f1f1;
+}
+.users-list a:last-child{
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+.users-list a img{
+  height: 40px;
+  width: 40px;
+}
+.users-list a .details p{
+  color: #67676a;
+}
+.users-list a .status-dot{
+  font-size: 12px;
+  color: #468669;
+  padding-left: 10px;
+}
+.users-list a .status-dot.offline{
+  color: #ccc;
+}
+
+/* Chat Area CSS Start */
+.chat-area header{
+  display: flex;
+  align-items: center;
+  padding: 18px 30px;
+}
+.chat-area header .back-icon{
+  color: #2196f3;
+  font-size: 18px;
+}
+.chat-area header img{
+  height: 45px;
+  width: 45px;
+  margin: 0 15px;
+}
+.chat-area header .details span{
+  font-size: 17px;
+  font-weight: 500;
+}
+.chat-box{
+  position: relative;
+  min-height: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px 30px 20px 30px;
+  background: #f7f7f7;
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+              inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+.chat-box .text{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: calc(100% - 50px);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.chat-box .chat{
+  margin: 15px 0;
+}
+.chat-box .chat p{
+  word-wrap: break-word;
+  padding: 8px 16px;
+  box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+              0rem 16px 16px -16px rgb(0 0 0 / 10%);
+}
+.chat-box .outgoing{
+  display: flex;
+}
+.chat-box .outgoing .details{
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+  background: #2196f3;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+  display: flex;
+  align-items: flex-end;
+}
+.chat-box .incoming img{
+  height: 35px;
+  width: 35px;
+}
+.chat-box .incoming .details{
+  margin-right: auto;
+  margin-left: 10px;
+  max-width: calc(100% - 130px);
+}
+.incoming .details p{
+  background: #fff;
+  color: #333;
+  border-radius: 18px 18px 18px 0;
+}
+.typing-area{
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.typing-area input{
+  height: 45px;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+}
+.typing-area button{
+  color: #fff;
+  width: 55px;
+  border: none;
+  outline: none;
+  background: #2196f3;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  font-size: 19px;
+  cursor: pointer;
+  opacity: 0.7;
+  pointer-events: none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.3s ease;
+}
+.typing-area button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+.users{
+  padding: 25px 30px;
+}
+.users header,
+.users-list a{
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  justify-content: space-between;
+}
+.wrapper img{
+  object-fit: cover;
+  border-radius: 50%;
+}
+.users header img{
+  height: 50px;
+  width: 50px;
+}
+:is(.users, .users-list) .content{
+  display: flex;
+  align-items: center;
+}
+:is(.users, .users-list) .content .details{
+  color: #000;
+  margin-left: 20px;
+}
+:is(.users, .users-list) .details span{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.scroll{
+  width: 100%;
+  height: 40em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+  padding: 20px;
+}
+
+/*Testar*/
+details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  padding: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 300;
+  list-style: none;
+}
+
+.mostra{
+  border-top: 1px solid #0275d8;
+}
+
+details summary:after {
+  content: "+";
+  color: #0275d8;
+  position: absolute;
+  font-size: 1.75rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: 0;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+details[open] summary:after {
+  transform: rotate(45deg);
+  font-size: 2rem;
+}
+details summary {
+  outline: 0;
+}
+details p {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  padding-top: 1rem;
+}
