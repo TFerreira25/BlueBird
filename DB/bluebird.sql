@@ -3706,8 +3706,8 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`log_id`, `log_email`, `log_pw`, `log_type`, `log_token`, `log_status`, `log_validar`) VALUES
 (1, 'admin@mail.com', 'MTIz', 0, '', 1, 1),
-(5, 'testes.atec.xd1@gmail.com', 'RGVib3JhMjAyMS4=', 1, '17efbe169edbbf5de149377f60953d9f56a874dcc654b76e3f', 1, 1),
-(6, 'testes.atec.xd@gmail.com', 'RGUxMjM0NTY3ODku', 2, 'd3d30632674ec160b5f30129356a2de68e78a3b22bffc866d1', 1, 1);
+(5, 'user1@mail.com', 'MTIz', 1, '17efbe169edbbf5de149377f60953d9f56a874dcc654b76e3f', 1, 1),
+(6, 'user2@mail.com', 'MTIz', 2, 'd3d30632674ec160b5f30129356a2de68e78a3b22bffc866d1', 1, 1);
 
 -- --------------------------------------------------------
 
